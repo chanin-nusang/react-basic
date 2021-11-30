@@ -17,22 +17,16 @@ function App() {
   };
   const searchCountries = (countries) => {
     return countries.filter((item) => {
-      if (
-        typeof item === "undefined" ||
-        item == null ||
-        typeof item.name === "undefined" ||
-        typeof item.capital === "undefined"
-      ) {
-        return false;
-      } else {
-        return dataFilter.some((filter) => {
-          console.log(item[filter]);
+      return dataFilter.some((filter) => {
+        console.log(item[filter]);
+        if (item[filter]) {
           return (
             item[filter].toString().toLowerCase().indexOf(word.toLowerCase()) >
             -1
           );
-        });
-      }
+        }
+        return false;
+      });
     });
   };
   return (

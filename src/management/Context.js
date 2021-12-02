@@ -1,4 +1,4 @@
-import { createContext, useContext, useReducer } from "react";
+import { createContext, useContext, useEffect, useReducer } from "react";
 import CartData from "../data/CartData";
 import Reducer from "./Reducer";
 const initState = {
@@ -12,8 +12,19 @@ export const MyCartContext = () => {
 };
 const CartProvider = ({ children }) => {
   const [state, dispatch] = useReducer(Reducer, initState);
+  useEffect(() => {
+    dispatch({ type: "CALCULATE_TOTAL" });
+  }, [state.cart]);
+  const removeItem = (id) => {
+    dispatch({ type: "REMOVE_ITEM", payload: id });
+  };
+  const toggleQuantity = (id, type) => {
+    dispatch({ type: "TOGGLE_QUANTITY", payload: { id, type } });
+  };
   return (
-    <CartContext.Provider value={{ ...state }}>{children}</CartContext.Provider>
+    <CartContext.Provider value={{ ...state, removeItem, toggleQuantity }}>
+      {children}
+    </CartContext.Provider>
   );
 };
 export { CartContext, CartProvider };

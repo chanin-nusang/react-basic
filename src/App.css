@@ -137,3 +137,12 @@ body{
 .remove img{
   cursor: pointer;
 }
+.empty{
+  height: 60px;
+  border-bottom: 1px solid #e1e8ee;
+  padding: 20px 30px;
+  text-align: center;
+  font-size: 25px;
+  font-weight: 800;
+  color: red;
+}

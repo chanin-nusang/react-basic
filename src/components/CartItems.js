@@ -1,7 +1,9 @@
 import plus from "../image/plus.svg";
 import minus from "../image/minus.svg";
 import del from "../image/delete-icn.svg";
+import { MyCartContext } from "../management/Context";
 const CartItems = ({ id, name, image_url, price, quantity }) => {
+  const { removeItem, toggleQuantity } = MyCartContext();
   return (
     <div className="items">
       <div className="product-image">
@@ -12,17 +14,23 @@ const CartItems = ({ id, name, image_url, price, quantity }) => {
         <span>ราคา {price} บาท</span>
       </div>
       <div className="quantity">
-        <button className="plus-btn">
+        <button
+          className="plus-btn"
+          onClick={() => toggleQuantity(id, "increment")}
+        >
           <img src={plus} alt=""></img>
         </button>
         <input type="text" value={quantity} disabled></input>
-        <button className="minus-btn">
+        <button
+          className="minus-btn"
+          onClick={() => toggleQuantity(id, "decrement")}
+        >
           <img src={minus} alt=""></img>
         </button>
       </div>
       <div className="total-price">{quantity * price}</div>
       <div className="remove">
-        <img src={del} alt="" />
+        <img src={del} alt="" onClick={() => removeItem(id)} />
       </div>
     </div>
   );

@@ -3,7 +3,7 @@ import minus from "../image/minus.svg";
 import del from "../image/delete-icn.svg";
 import { MyCartContext } from "../management/Context";
 const CartItems = ({ id, name, image_url, price, quantity }) => {
-  const { removeItem, toggleQuantity } = MyCartContext();
+  const { removeItem, toggleQuantity, formatNumber } = MyCartContext();
   return (
     <div className="items">
       <div className="product-image">
@@ -11,7 +11,7 @@ const CartItems = ({ id, name, image_url, price, quantity }) => {
       </div>
       <div className="description">
         <span>{name}</span>
-        <span>ราคา {price} บาท</span>
+        <span>ราคา {formatNumber(price)} บาท</span>
       </div>
       <div className="quantity">
         <button
@@ -28,7 +28,7 @@ const CartItems = ({ id, name, image_url, price, quantity }) => {
           <img src={minus} alt=""></img>
         </button>
       </div>
-      <div className="total-price">{quantity * price}</div>
+      <div className="total-price">{formatNumber(quantity * price)}</div>
       <div className="remove">
         <img src={del} alt="" onClick={() => removeItem(id)} />
       </div>

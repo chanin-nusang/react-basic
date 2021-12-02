@@ -1,38 +1,139 @@
-.App {
-  text-align: center;
+*{
+  box-sizing: border-box;
+  overflow: hidden;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body{
+  background: #121312;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.header{
+  background: brown;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5rem;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2%;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.button{
+  border: none;
+  font: inherit;
+  background: khaki;
+  color: black;
+  padding: 0.75rem 3rem;
+  display: flex;
+  justify-content: space-around;
+  border-radius: 10px;
+  align-items: center;
+  font-weight: bold;
+}
+.badge{
+  background: orange;
+  padding: 0.2rem 1rem;
+  border-radius: 25px;
+  margin-left: 1rem;
+  font-weight: bold;
+}
+.shopping-cart{
+  width: 750px;
+  height: 420px;
+  background: white;
+  margin: 120px auto;
+  border-radius: 6px;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+}
+.items{
+  padding: 5px 30px;
+  height: 100px;
+  display: flex;
+}
+.items:nth-child(3){
+  border-top: 1px solid #e1e8ee;
+  border-bottom:  1px solid #e1e8ee;
+}
+.product-image{
+  margin-right: 50px;
+}
+.product-image img{
+  width: 120px;
+  height: 80px;
+}
+.title{
+  height: 60x;
+  border-bottom: 1px solid #e1e8ee;
+  padding: 20px 30px;
+  font-size: 25px;
+  font-weight: 800;
+}
+.footer{
+  height: 60x;
+  border-top: 1px solid #e1e8ee;
+  padding: 20px 30px;
+  font-size: 25px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.description{
+  padding-top: 5px;
+  margin-right: 60px;
+  min-width: 120px;
+}
+.description span{
+  display: block;
+  margin-top: 5px;
+  font-size: 18px;
+  font-weight: 700;
+  color: black;
+}
+.description span:last-child{
+  font-weight: 300;
+  margin-top: 8px;
+  color: #8d9296;
+}
+.quantity{
+  padding-top: 20px;
+  margin-right: 60px;
+}
+.quantity input{
+  border: none;
+  text-align: center;
+  width: 32px;
+  font-weight: 300;
+  font-size: 18px;
+}
+.plus-btn,.minus-btn{
+  width: 30px;
+  height: 30px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.plus-btn img{
+  margin-top: 3px;
 }
 
-.App-link {
-  color: #61dafb;
+.minus-btn img{
+  margin-bottom: 3px;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.total-price{
+  width: 83px;
+  padding-top: 15px;
+  text-align: center;
+  font-size: 25px;
+  font-weight: 700;
+}
+.remove{
+  position: relative;
+  padding-top: 25px;
+  margin-left: 60px;
+}
+.remove img{
+  cursor: pointer;
 }
